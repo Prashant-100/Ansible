@@ -1,0 +1,15 @@
+- name: Play-Multiple-Tasks
+  hosts: all #We can target frontend, backend or devend as your need
+  tasks:
+  - name: install-git
+    become: true
+    apt:
+      name: git
+      state: present
+      update_cache: yes
+  - name: install-unzip
+    become: true
+    apt:
+      name: unzip
+      state: present
+      update_cache: yes

@@ -1,0 +1,9 @@
+- name: Play-Multiple-Items
+  hosts: all
+  tasks: 
+  - name: Install-Multiple-packages
+    become: true
+    apt: 
+      name: ['git','unzip','curl']
+      state: present
+      update_cache: yes

@@ -1,0 +1,8 @@
+- name: Play-Directory
+  hosts: all
+  tasks:
+  - name: Create-Directory
+    become: true
+    file:
+      path: /home/ubuntu/test
+      state: touch

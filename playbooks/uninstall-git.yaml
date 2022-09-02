@@ -1,0 +1,9 @@
+- name: Play-Directory
+  hosts: all
+  tasks:
+  - name: uninstall-git
+    become: true
+    apt:
+      name: git
+      state: absent
+      update_cache: yes
