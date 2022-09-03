@@ -1,0 +1,16 @@
+- name: Play-shell
+  hosts: backend
+  tasks: 
+  - name: shell
+    become: true
+    shell: 
+      cmd: echo "password"
+      state: present
+      update_cache: yes
+    register: pswd 
+  - name: shell
+    become: true
+    shell: 
+      cmd: echo {{pswd}}
+      state: present
+      update_cache: yes

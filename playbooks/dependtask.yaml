@@ -1,0 +1,17 @@
+- name: Play-Registers
+  hosts: backend
+  tasks: 
+    - name: Install-git
+      become: true
+      apt: 
+        name: git
+        state: present
+        update_cache: yes
+      register: status
+    - name: Install-unzip
+      become: true
+      apt: 
+        name: unzip
+        state: present
+        update_cache: yes
+      when: status is changed

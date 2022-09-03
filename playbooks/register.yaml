@@ -1,0 +1,13 @@
+- name: Playbook-git-register
+  hosts: backend
+  tasks: 
+  - name: Install-git
+    become: true
+    apt:  
+      name: git  
+      state: present
+      update_cache: yes
+    register: result-register
+  - name: Print Debug Message
+    debug: 
+      var: result-register  
