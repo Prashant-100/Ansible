@@ -1,0 +1,21 @@
+- name: Playbook-git
+  hosts: all
+  tasks:
+  - name: Install-git
+    become: true
+    yum: 
+      name: git
+      state: present
+      update_cache: yes
+    when: 
+    - ansible_distribution == "RedHat"
+    - ansible_pkg_mgr == "dnf"
+  - name: Install-git 
+    become: true
+    apt:
+      name: git
+      state: present
+      update_cache: yes
+    when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_pkg_mgr == "apt"
