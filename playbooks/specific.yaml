@@ -1,0 +1,17 @@
+- name: Play-Specific-Tasks
+  hosts: backend
+  tasks: 
+    - name: Install-git
+      become: true
+      apt: 
+        name: git
+        state: present
+        update_cache: yes
+      tags: git
+    - name: Install-unzip
+      become: true
+      apt: 
+        name: unzip
+        state: present
+        update_cache: yes
+      tags: unzip
